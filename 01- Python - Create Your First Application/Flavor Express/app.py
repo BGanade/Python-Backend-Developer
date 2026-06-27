@@ -1,5 +1,5 @@
 import os #import the os module to use the system command
-restaurant = [] #List of restaurants
+restaurant = ['Pizza', 'Burger', 'Sushi'] #List of restaurants
 
 def show_program_name(): #show the program name
     print("""
@@ -31,6 +31,14 @@ def register_restaurant(): #Register a restaurant
     restaurant_name = input('Enter the restaurant name you want to register: ')
     restaurant.append(restaurant_name)
     print(f'The restaurant {restaurant_name} was registered successfully!\n')
+    input('Press enter to go back to the main menu...')
+    main()
+
+def list_restaurants(): #List the restaurants
+    os.system('cls')
+    print('List of registered restaurants\n')
+    for i, restaurant_name in enumerate(restaurant, start=1):
+        print(f'{i}. {restaurant_name}')
     input('Press enter to go back to the main menu...')
     main()
 
