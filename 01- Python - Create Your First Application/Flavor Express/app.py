@@ -1,4 +1,5 @@
-import os
+import os #import the os module to use the system command
+restaurant = [] #List of restaurants
 
 def show_program_name(): #show the program name
     print("""
@@ -24,6 +25,15 @@ def invalid_option(): #Show an invalid option message
     input('Press enter to continue...')
     main()
 
+def register_restaurant(): #Register a restaurant
+    os.system('cls')
+    print('Registration of new restaurants\n')
+    restaurant_name = input('Enter the restaurant name you want to register: ')
+    restaurant.append(restaurant_name)
+    print(f'The restaurant {restaurant_name} was registered successfully!\n')
+    input('Press enter to go back to the main menu...')
+    main()
+
 def chose_option(): #Choose an option
     try:
         chosed_option = int(input('Chose an option: '))
@@ -31,11 +41,11 @@ def chose_option(): #Choose an option
 
         match chosed_option:
             case 1:
-                print('Register a restaurant')
+                register_restaurant()
             case 2:
-                print('List restaurants')
+                list_restaurants()
             case 3:
-                print('Active restaurants')
+                active_restaurants()
             case 4:
                 ending_application()
             case _:
