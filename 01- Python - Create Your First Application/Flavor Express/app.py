@@ -1,5 +1,7 @@
 import os #import the os module to use the system command
-restaurant = ['Pizza', 'Burger', 'Sushi'] #List of restaurants
+restaurants = [{'name' : 'Praça', 'category' : 'Japonesa', 'active': False},
+              {'name' : 'Pizza Suprema', 'category' : 'Pizza', 'active': True},
+              {'name' : 'Cantina', 'category' : 'Italiana', 'active': False}] #List of restaurants
 
 def show_program_name(): #show the program name
     print("""
@@ -34,14 +36,22 @@ def show_subtitle(subtitle): #Show a subtitle
 def register_restaurant(): #Register a restaurant
     show_subtitle('Registration of new restaurants')
     restaurant_name = input('Enter the restaurant name you want to register: ')
-    restaurant.append(restaurant_name)
+    category = input(f'Enter the category of the restaurant {restaurant_name}: ')
+    restaurant_data = {'name':restaurant_name, 'category': category,'active' :False }
+    restaurants.append(restaurant_data)
+
     print(f'The restaurant {restaurant_name} was registered successfully!\n')
     back_to_main_menu()
 
-def list_restaurants(): #List the restaurants
+def list_restaurants():
     show_subtitle('List of registered restaurants')
-    for i, restaurant_name in enumerate(restaurant, start=1):
-        print(f'{i}. {restaurant_name}')
+
+    for i, restaurant in enumerate(restaurants, start=1): #
+        restaurant_name = restaurant['name']
+        category = restaurant['category']
+        active = restaurant['active']
+        print(f'{i}. {restaurant_name} | {category} | {active}')
+
     back_to_main_menu()
 
 def chose_option(): #Choose an option
@@ -55,7 +65,7 @@ def chose_option(): #Choose an option
             case 2:
                 list_restaurants()
             case 3:
-                active_restaurants()
+                print('active_restaurants')
             case 4:
                 ending_application()
             case _:

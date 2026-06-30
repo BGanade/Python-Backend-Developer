@@ -53,22 +53,27 @@ print('ex-6 ----------')
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 sum_numbers = 0
 
-for number in numbers:
-    sum_numbers += number
-
-print(f'The sum of the numbers is {sum_numbers}')
+try:
+    for number in numbers:
+        sum_numbers += number
+    print(f'The sum of the numbers is {sum_numbers}')
+except Exception as e:
+    print(f"Error Ocurred: {e}")
 
 #7---------------------------------------------------------------------------------------------------------------------------------------------------
 print('ex-7 ----------')
-num_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-sum_list = 0
-
-for number in num_list:
-    sum_list += number
+value_list = [15, 20, 25, 30]
+total_sum = 0
 
 try:
-    average = sum_list / len(num_list)
-    print(f'The average is {average}')
+    for value in value_list:
+        total_sum += value
+
+    average = total_sum / len(value_list)
+    print(f"Average of the values: {average}")
 
 except ZeroDivisionError:
-    print('The list is empty.')
+    print("The list is empty. It is not possible to calculate the average.")
+
+except Exception as error:
+    print(f"An error occurred: {error}")
