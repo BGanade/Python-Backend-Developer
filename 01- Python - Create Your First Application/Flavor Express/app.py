@@ -1,9 +1,11 @@
-import os #import the os module to use the system command
-restaurants = [{'name' : 'Praça', 'category' : 'Japonesa', 'active': False},
-              {'name' : 'Pizza Suprema', 'category' : 'Pizza', 'active': True},
-              {'name' : 'Cantina', 'category' : 'Italiana', 'active': False}] #List of restaurants
+import os  # import the os module to use the system command
+restaurants = [{'name': 'Praça', 'category': 'Japonesa', 'active': False},
+               {'name': 'Pizza Suprema', 'category': 'Pizza', 'active': True},
+               # List of restaurants
+               {'name': 'Cantina', 'category': 'Italiana', 'active': False}]
 
-def show_program_name(): #show the program name
+
+def show_program_name():  # show the program name
     print("""
 ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗  ███████╗██╗░░░░░░█████╗░██╗░░░██╗░█████╗░██████╗░
 ██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝  ██╔════╝██║░░░░░██╔══██╗██║░░░██║██╔══██╗██╔══██╗
@@ -12,41 +14,50 @@ def show_program_name(): #show the program name
 ███████╗██╔╝╚██╗██║░░░░░██║░░██║███████╗██████╔╝██████╔╝  ██║░░░░░███████╗██║░░██║░░╚██╔╝░░╚█████╔╝██║░░██║
 ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░  ╚═╝░░░░░╚══════╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝\n""")
 
-def show_options(): #show the options
+
+def show_options():  # show the options
     print('1. Register a restaurant')
     print('2. List restaurants')
     print('3. Active restaurants')
     print('4. exit  ')
 
-def ending_application(): #End the application
+
+def ending_application():  # End the application
     show_subtitle('Ending the application...')
 
-def back_to_main_menu(): #Back to the main menu
+
+def back_to_main_menu():  # Back to the main menu
     input('Press enter to go back to the main menu...')
     main()
 
-def invalid_option(): #Show an invalid option message
+
+def invalid_option():  # Show an invalid option message
     print('Invalid option!\n')
     back_to_main_menu()
 
-def show_subtitle(subtitle): #Show a subtitle
+
+def show_subtitle(subtitle):  # Show a subtitle
     os.system('cls')
     print(f'{subtitle}\n')
 
-def register_restaurant(): #Register a restaurant
+
+def register_restaurant():  # Register a restaurant
     show_subtitle('Registration of new restaurants')
     restaurant_name = input('Enter the restaurant name you want to register: ')
-    category = input(f'Enter the category of the restaurant {restaurant_name}: ')
-    restaurant_data = {'name':restaurant_name, 'category': category,'active' :False }
+    category = input(
+        f'Enter the category of the restaurant {restaurant_name}: ')
+    restaurant_data = {'name': restaurant_name,
+                       'category': category, 'active': False}
     restaurants.append(restaurant_data)
 
     print(f'The restaurant {restaurant_name} was registered successfully!\n')
     back_to_main_menu()
 
+
 def list_restaurants():
     show_subtitle('List of registered restaurants')
 
-    for i, restaurant in enumerate(restaurants, start=1): #
+    for i, restaurant in enumerate(restaurants, start=1):
         restaurant_name = restaurant['name']
         category = restaurant['category']
         active = restaurant['active']
@@ -54,10 +65,30 @@ def list_restaurants():
 
     back_to_main_menu()
 
-def chose_option(): #Choose an option
+
+def toggle_restaurant_status():
+    show_subtitle('toggling restaurant status')
+    name_restaurant = input(
+        'Enter the name of the restaurant for which you want to toggle the status: ')
+    restaurant_found = False
+
+    for restaurant in restaurants:
+        if name_restaurant == restaurant['name']:
+            restaurant_found = True
+            restaurant['active'] = not restaurant['active']
+            message = f'The restaurant {name_restaurant} was activated suceffuly' if restaurant[
+                'active'] else f'The restaurant {name_restaurant} was desactivated sucessiffuly'
+            print(message)
+
+    if not restaurant_found:
+        print('The restaurant was not finded')
+    back_to_main_menu()
+
+
+def chose_option():  # Choose an option
     try:
         chosed_option = int(input('Chose an option: '))
-        print(f'You chose option: {chosed_option}!')  
+        print(f'You chose option: {chosed_option}!')
 
         match chosed_option:
             case 1:
@@ -65,14 +96,15 @@ def chose_option(): #Choose an option
             case 2:
                 list_restaurants()
             case 3:
-                print('active_restaurants')
+                toggle_restaurant_status()
             case 4:
                 ending_application()
             case _:
                 invalid_option()
     except ValueError:
         invalid_option()
-        return 
+        return
+
 
 def main():
     os.system('cls')
@@ -80,6 +112,6 @@ def main():
     show_options()
     chose_option()
 
+
 if __name__ == '__main__':
     main()
-    
