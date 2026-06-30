@@ -17,30 +17,32 @@ def show_options(): #show the options
     print('4. exit  ')
 
 def ending_application(): #End the application
-    os.system('cls')
-    print('Ending the application\n')  
+    show_subtitle('Ending the application...')
+
+def back_to_main_menu(): #Back to the main menu
+    input('Press enter to go back to the main menu...')
+    main()
 
 def invalid_option(): #Show an invalid option message
     print('Invalid option!\n')
-    input('Press enter to continue...')
-    main()
+    back_to_main_menu()
+
+def show_subtitle(subtitle): #Show a subtitle
+    os.system('cls')
+    print(f'{subtitle}\n')
 
 def register_restaurant(): #Register a restaurant
-    os.system('cls')
-    print('Registration of new restaurants\n')
+    show_subtitle('Registration of new restaurants')
     restaurant_name = input('Enter the restaurant name you want to register: ')
     restaurant.append(restaurant_name)
     print(f'The restaurant {restaurant_name} was registered successfully!\n')
-    input('Press enter to go back to the main menu...')
-    main()
+    back_to_main_menu()
 
 def list_restaurants(): #List the restaurants
-    os.system('cls')
-    print('List of registered restaurants\n')
+    show_subtitle('List of registered restaurants')
     for i, restaurant_name in enumerate(restaurant, start=1):
         print(f'{i}. {restaurant_name}')
-    input('Press enter to go back to the main menu...')
-    main()
+    back_to_main_menu()
 
 def chose_option(): #Choose an option
     try:
