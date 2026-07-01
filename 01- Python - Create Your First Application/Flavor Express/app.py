@@ -20,6 +20,7 @@ def show_program_name():
 ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░  ╚═╝░░░░░╚══════╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝
 """)
 
+
 def show_options():
     """Display the main menu options.
 
@@ -108,7 +109,8 @@ def list_restaurants():
         restaurant_name = restaurant['name']
         category = restaurant['category']
         active = 'activated' if restaurant['active'] else 'disabled'
-        print(f'{i}.{restaurant_name.ljust(20)} | {category.ljust(20)} | {active.ljust(20)}')
+        print(
+            f'{i}.{restaurant_name.ljust(20)} | {category.ljust(20)} | {active.ljust(20)}')
 
     back_to_main_menu()
 
@@ -116,10 +118,9 @@ def list_restaurants():
 def toggle_restaurant_status():
     """Toggle the activation status of a restaurant.
 
-    Prompts the user to enter a restaurant's name, searches for
-    the restaurant in the registered list, switches its activation
-    status, displays a confirmation message, and returns to the
-    main menu. If the restaurant is not found, an error message
+    Prompts the user to enter a restaurant's name, searches for the restaurant in the 
+    registered list, switches its activation status, displays a confirmation message, 
+    and returns to the main menu. If the restaurant is not found, an error message
     is displayed instead.
     """
     show_subtitle('Toggling restaurant status')
