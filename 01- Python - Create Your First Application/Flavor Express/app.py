@@ -18,7 +18,7 @@ def show_program_name():  # show the program name
 def show_options():  # show the options
     print('1. Register a restaurant')
     print('2. List restaurants')
-    print('3. Active restaurants')
+    print('3. Toggle restaurant status')
     print('4. exit  ')
 
 
@@ -38,7 +38,8 @@ def invalid_option():  # Show an invalid option message
 
 def show_subtitle(subtitle):  # Show a subtitle
     os.system('cls')
-    print(f'{subtitle}\n')
+    line = '*' * (len(subtitle))
+    print(f'{line}\n{subtitle}\n{line}\n')
 
 
 def register_restaurant():  # Register a restaurant
@@ -57,11 +58,12 @@ def register_restaurant():  # Register a restaurant
 def list_restaurants():
     show_subtitle('List of registered restaurants')
 
+    print(f'{'Restaurant name'.ljust(22)} | {'Category'.ljust(20)} | {'active'}')
     for i, restaurant in enumerate(restaurants, start=1):
         restaurant_name = restaurant['name']
         category = restaurant['category']
-        active = restaurant['active']
-        print(f'{i}. {restaurant_name} | {category} | {active}')
+        active = 'activated' if restaurant['active'] else 'disabled'
+        print(f'{i}.{restaurant_name.ljust(20)} | {category.ljust(20)} | {active.ljust(20)}')
 
     back_to_main_menu()
 
