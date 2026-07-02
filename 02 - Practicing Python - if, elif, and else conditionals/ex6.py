@@ -4,8 +4,11 @@ time. The office only permits access between 8:00 AM and 6:00 PM. Create a progr
 that takes the current time as input (in 24-hour format) and displays a message 
 stating whether access is allowed or denied." """
 
-hour = int(input('enter the current time: '))
-if hour >= 8 and hour <= 18:
-    print('You can enter the office!!')
+hour = int(input("Enter the current hour (0-23): "))
+
+if not 0 <= hour <= 23:
+    print("Invalid hour.")
+elif 8 <= hour <= 18:
+    print("Access granted.")
 else:
-    print('You cant enter the office!!')
+    print("Access denied.")
