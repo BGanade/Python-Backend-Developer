@@ -1,3 +1,8 @@
+""" Carlos wants to monitor his monthly budget to avoid overspending. He has set a 
+spending limit of R$ 3,000.00 and needs a program to help track his expenses. The 
+program should take the total expenses incurred as input and indicate whether he has 
+exceeded the limit or is still within budget. """
+
 BUDGET_LIMIT = 3000
 
 spend = float(input("Enter your total expenses this month: "))
