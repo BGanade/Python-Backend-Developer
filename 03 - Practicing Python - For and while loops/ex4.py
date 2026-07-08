@@ -13,7 +13,8 @@ the message: "Missing project". """
 projects = ["website", "game", "data analysis", None, "mobile app"]
 
 for project in projects:
-    if project != None:
+    if project is not None:
         print(project)
     else:
-        print("Missing Project")
+        print("Missing project")
+
