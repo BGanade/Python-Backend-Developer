@@ -9,13 +9,11 @@ met. When the user enters valid data, the program should display the message:
 
 Create a program that implements this logic using a while loop. """
 
-username = input('Enter a username with at least 5 characters: ')
-password = input('Enter a password with at least 8 characters: ')
+while True:
+    username = input("Enter a username with at least 5 characters: ")
+    password = input("Enter a password with at least 8 characters: ")
 
-while len(username) < 5 or len(password) < 8:
-    if len(username) < 5:
-        username = input('The username must have at least 5 characters: ')
-    if len(password) < 8:
-        password = input('The password must have at least 8 characters: ')
+    if len(username) >= 5 and len(password) >= 8:
+        break
 
 print("Registration completed successfully!")
