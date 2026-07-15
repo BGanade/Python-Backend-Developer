@@ -14,21 +14,21 @@ Choose an operation (+, -, *, /): +
 Expected output:
 The result is: 15 """
 
-first_number = int(input('Enter the first number: '))
-second_number = int(input('Enter the second number: '))
-operator = input('chose an operation (+, -, *, /): ')
+first_number = float(input('Enter the first number: '))
+second_number = float(input('Enter the second number: '))
+operator = input('Choose an operation (+, -, *, /): ')
 
 operations = {
-    "+": lambda x,y: x + y,
-    "-": lambda x,y: x - y,
-    "*": lambda x,y: x * y,
-    "/": lambda x,y: x / y
+    "+": lambda x, y: x + y,
+    "-": lambda x, y: x - y,
+    "*": lambda x, y: x * y,
+    "/": lambda x, y: x / y
 }
 
 if operator in operations:
     try:
         result = operations[operator](first_number, second_number)
-        print(result)
+        print(f'The result is: {result}')
     except ZeroDivisionError:
         print("Cannot divide by zero")
 else:

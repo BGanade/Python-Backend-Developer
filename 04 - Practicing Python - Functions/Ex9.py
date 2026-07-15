@@ -11,10 +11,19 @@ Enter the purchase amount: 200
 Expected output:
 Final price with discount: 180.0 """
 
-discount_percentage = int(input('Enter the discount percentage: '))
-purchase_amount = int(input('Enter the purchase amount: '))
+discount_percentage = int(input("Enter the discount percentage: "))
+purchase_amount = float(input("Enter the purchase amount: "))
 
-def price_calculator(discount, purchase):
-    return purchase * (1 - discount/100)
 
-print(f'final price with discount {price_calculator(discount_percentage, purchase_amount)}')
+def create_discount_calculator(discount):
+    def calculate_price(purchase):
+        return purchase * (1 - discount / 100)
+
+    return calculate_price
+
+
+discount_calculator_10 = create_discount_calculator(discount_percentage)
+
+final_price = discount_calculator_10(purchase_amount)
+
+print(f"Final price with discount: {final_price}")
