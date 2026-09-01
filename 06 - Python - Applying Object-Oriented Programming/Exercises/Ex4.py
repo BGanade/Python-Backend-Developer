@@ -8,8 +8,8 @@ one year.
 Finally, add a property called greeting that returns a personalized greeting message
 based on the person's profession. """
 
+
 class Person():
-    
 
     def __init__(self, name, age, profession):
         self.name = name.title()
@@ -26,6 +26,7 @@ class Person():
 
     def birthday(self):
         self.age += 1
+
 
 ganade = Person('Bruno Ganade', 29, 'senior laboratory technician')
 print(ganade)
