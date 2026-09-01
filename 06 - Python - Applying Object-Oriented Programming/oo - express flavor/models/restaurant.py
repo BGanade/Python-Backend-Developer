@@ -1,3 +1,6 @@
+from models.review import Review
+
+
 class Restaurant:
     restaurants = []
 
@@ -5,6 +8,7 @@ class Restaurant:
         self._name = name.title()
         self.category = category.upper()
         self._active = False
+        self._review = []
         Restaurant.restaurants.append(self)
 
     def __str__(self):
@@ -29,9 +33,6 @@ class Restaurant:
     def Alternate_status(self):
         self._active = not self._active
 
-
-restaurant_praca = Restaurant('praça', 'Gourmet')
-restaurant_praca.Alternate_status()
-restaurant_pizza = Restaurant('pizza express', 'Italiano')
-
-Restaurant.list_restaurants()
+    def recive_review(self, costumer, rating):
+        review = Review(costumer, rating)
+        self._review.append(review)
