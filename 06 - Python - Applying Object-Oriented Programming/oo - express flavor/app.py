@@ -1,9 +1,9 @@
 from models.restaurant import Restaurant
 
 restaurant_square = Restaurant('square', 'gourmet')
-restaurant_square.recive_review('Ganade', 10)
-restaurant_square.recive_review('Jose', 8)
-restaurant_square.recive_review('Joao', 8)
+restaurant_square.receive_review('Ganade', 10)
+restaurant_square.receive_review('Jose', 8)
+restaurant_square.receive_review('Joao', 2)
 # restaurant_mexican = Restaurant('mexican food', 'mexican')
 # restaurant_japan = Restaurant('japa', 'japan')
 
