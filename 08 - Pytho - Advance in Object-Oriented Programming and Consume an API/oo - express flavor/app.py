@@ -1,17 +1,13 @@
 from models.restaurant import Restaurant
+from models.menu.drinks import Drinks
+from models.menu.dish import Dish
 
 restaurant_square = Restaurant('square', 'gourmet')
-restaurant_square.receive_review('Ganade', 10)
-restaurant_square.receive_review('Jose', 8)
-restaurant_square.receive_review('Joao', 2)
-# restaurant_mexican = Restaurant('mexican food', 'mexican')
-# restaurant_japan = Restaurant('japa', 'japan')
-
-# restaurant_mexican.Alternate_status()
-
+juice_drink = Drinks('Watermelon', 5.0, '500ml')
+bread_dish = Dish('Bread', 2.00, 'The best Bread of the city')
 
 def main():
-    Restaurant.list_restaurants()
+    pass
 
 
 if __name__ == '__main__':
