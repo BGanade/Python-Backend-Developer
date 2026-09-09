@@ -6,4 +6,4 @@ class Dish(MenuItem):
         self._description = description
 
     def __str__(self):
-            return self._name
+        return self._name
