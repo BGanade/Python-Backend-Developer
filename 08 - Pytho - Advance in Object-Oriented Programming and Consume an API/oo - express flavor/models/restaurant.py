@@ -114,11 +114,15 @@ class Restaurant:
     def show_menu(self):
         print(f'Menu from {self._name} restaurant\n')
         for i, item in enumerate(self._menu, start=1):
-            if hasattr(item, '_description'):
+            if hasattr(item, '_dish'):
                 message_dish = (f'{i}. Name: {item._name} | Price: {item._price} | '
                                 f'Description: {item._description}')
                 print(message_dish)
-            else:
+            elif hasattr(item, '_drink'):
                 message_drink = (f'{i}. Name: {item._name} | Price: {item._price} | '
                                  f'Size: {item._size}')
                 print(message_drink)
+            elif hasattr(item, '_dessert'):
+                message_dessert = (f'{i}. Name: {item._name} | Price: {item._price} | '
+                                   f'Size: {item._size}')
+                print(message_dessert)

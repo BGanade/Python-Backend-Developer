@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class MenuItem(ABC):
     def __init__(self, name, price):
         self._name = name
