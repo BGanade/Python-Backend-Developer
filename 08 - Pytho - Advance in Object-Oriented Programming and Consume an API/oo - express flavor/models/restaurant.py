@@ -22,6 +22,7 @@ class Restaurant:
         self.category = category.upper()
         self._active = False
         self._reviews = []
+        self._menu = []
 
         Restaurant.restaurants.append(self)
 
@@ -103,3 +104,10 @@ class Restaurant:
         average = round(sum_ratings / quantity_of_ratings, 1)
 
         return average
+
+    def add_drink_to_menu(self, drink):
+        self._menu.append(drink)
+
+    def add_dish_to_menu(self, dish):
+        self._menu.append(dish)        
+

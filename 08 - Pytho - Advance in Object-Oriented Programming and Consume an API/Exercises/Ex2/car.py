@@ -1,4 +1,4 @@
-#3
+# 3
 from vehicle import Vehicle
 
 
@@ -7,6 +7,6 @@ class Car(Vehicle):
         super().__init__(brand, model)
         self._doors = doors
 
-    #4
+    # 4
     def __str__(self) -> str:
         return f'{super().__str__()}, Doors: {self._doors}'

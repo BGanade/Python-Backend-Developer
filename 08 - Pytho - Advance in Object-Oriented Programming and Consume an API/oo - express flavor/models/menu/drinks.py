@@ -1,8 +1,9 @@
 from models.menu.menu_item import MenuItem
 
+
 class Drinks(MenuItem):
     def __init__(self, name, price, size):
-        super().__init__(name,price)
+        super().__init__(name, price)
         self._size = size
 
     def __str__(self):
