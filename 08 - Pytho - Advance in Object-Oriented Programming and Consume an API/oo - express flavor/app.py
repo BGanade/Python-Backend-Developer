@@ -5,8 +5,9 @@ from models.menu.dish import Dish
 restaurant_square = Restaurant('square', 'gourmet')
 juice_drink = Drinks('Watermelon', 5.0, '500ml')
 bread_dish = Dish('Bread', 2.00, 'The best Bread of the city')
-restaurant_square.add_drink_to_menu(juice_drink)
-restaurant_square.add_dish_to_menu(bread_dish)
+restaurant_square.add_to_menu(juice_drink)
+restaurant_square.add_to_menu(bread_dish)
+
 
 def main():
     print(juice_drink)

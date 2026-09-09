@@ -1,5 +1,5 @@
 from models.review import Review
-
+from models.menu.menu_item import MenuItem
 
 class Restaurant:
     """Represent a restaurant in the application.
@@ -105,9 +105,6 @@ class Restaurant:
 
         return average
 
-    def add_drink_to_menu(self, drink):
-        self._menu.append(drink)
-
-    def add_dish_to_menu(self, dish):
-        self._menu.append(dish)        
-
+    def add_to_menu(self, item):
+        if isinstance(item, MenuItem):
+            self._menu.append(item)
