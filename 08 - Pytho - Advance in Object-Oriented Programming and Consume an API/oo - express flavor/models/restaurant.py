@@ -1,6 +1,7 @@
 from models.review import Review
 from models.menu.menu_item import MenuItem
 
+
 class Restaurant:
     """Represent a restaurant in the application.
 
@@ -108,3 +109,16 @@ class Restaurant:
     def add_to_menu(self, item):
         if isinstance(item, MenuItem):
             self._menu.append(item)
+
+    @property
+    def show_menu(self):
+        print(f'Menu from {self._name} restaurant\n')
+        for i, item in enumerate(self._menu, start=1):
+            if hasattr(item, '_description'):
+                message_dish = (f'{i}. Name: {item._name} | Price: {item._price} | '
+                                f'Description: {item._description}')
+                print(message_dish)
+            else:
+                message_drink = (f'{i}. Name: {item._name} | Price: {item._price} | '
+                                 f'Size: {item._size}')
+                print(message_drink)

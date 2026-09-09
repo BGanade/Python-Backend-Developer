@@ -10,8 +10,7 @@ restaurant_square.add_to_menu(bread_dish)
 
 
 def main():
-    print(juice_drink)
-    print(bread_dish)
+    restaurant_square.show_menu
 
 
 if __name__ == '__main__':
