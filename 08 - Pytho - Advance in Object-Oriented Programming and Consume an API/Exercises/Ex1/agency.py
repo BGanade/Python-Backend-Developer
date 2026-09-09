@@ -4,7 +4,7 @@ an additional attribute called number. Both classes should only have a construct
 
 Now it's your turn! Practice inheritance to improve your skills and ensure an
 efficient implementation of the Object-Oriented Programming paradigm with Python. """
-from Ex1 import Bank
+from bank import Bank
 
 
 class Agency(Bank):
